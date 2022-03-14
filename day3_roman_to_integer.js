@@ -35,4 +35,5 @@ var romanToInt = function(s) {
             dec += decimals[s.charAt(i)]
         }
     }
-    retu
+    return dec
+};
