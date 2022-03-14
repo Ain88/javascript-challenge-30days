@@ -4,19 +4,25 @@ https://leetcode.com/problems/roman-to-integer
  * @return {number}
  */
 var romanToInt = function(s) {
-    
-  var myMap = new Map();
-  myMap.set("I", 1);
-  myMap.set("V", 5);
-  myMap.set("X", 10);
-  myMap.set("L", 50);
-  myMap.set("C", 100);
-  myMap.set("D", 500);
-  myMap.set("M", 1000);
-    const mm = s.split("");
-    let result = 0;
-    for(i=0; i<mm.length; i++){
-        result += myMap.get(mm[i]);
+    var key = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
     }
-    return result;
+    var total = 0
+    s = s.split("")
+    for (var i = 0; i < s.length; i++) {
+        if(key[s[i]]<key[s[i+1]]) {
+            total += key[s[i+1]]-key[s[i]]
+            i++
+        } else{
+            total += key[s[i]]
+        }
+    }   
+    return total
 };
+
