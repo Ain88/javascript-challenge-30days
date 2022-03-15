@@ -4,20 +4,21 @@ https://leetcode.com/problems/two-sum/
  * @param {number} target
  * @return {number[]}
  */
+
 var twoSum = function(nums, target) {
     var result = [];
     
     for(i=0; i < nums.length; i++){
-        for(j=1; j < nums.length; j++){
+        for(j=i+1; j < nums.length; j++){
             if(nums[i]+nums[j] == target){
                 result.push(i);
                 result.push(j);
+                console.log(i, j);
             }
         }
     }
     return result;
 };
-
 
 var twoSum2 = function (nums, target) {
     // Array to store the result
